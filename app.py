@@ -25,18 +25,38 @@ def calculate():
         a = float(request.form["a"])
         b = float(request.form["b"])
         c = float(request.form["c"])
-        root_1, root_2 = quadratic(a, b, c)
+        result = quadratic(a, b, c)
 
-        if root_1:
-            return render_template(
-                "calculator_result.html", a=a, b=b, c=c, root_1=root_1, root_2=root_2
-            )
-        else:
-            return render_template("calculator_form.html", error=True)
+        if result is not None:
+            if isinstance(result, float):
+                print(f'The solution is {result}.')
+                return render_template(
+                    "calculator_result.html",
+                    a=a,
+                    b=b,
+                    c=c,
+                    root_1=result,
+                    root_2=result,
+                )
+            else:
+                return render_template(
+                    "calculator_result.html",
+                    a=a,
+                    b=b,
+                    c=c,
+                    root_1=result[0],
+                    root_2=result[1],
+                )
+        return render_template("calculator_form.html", error=True)
     return render_template("calculator_form.html", error=None)
 
 
-@app.route("/test")
+@app.route("/grade")
 def test():
-    nutritions = [{'name': 'Ivy', 'grade': 100}, {'name': 'Kenzi', 'grade': 90}]
-    return render_template("test.html", nutritions=nutritions)
+    grades = [
+        {'name': 'John', 'grade': 80},
+        {'name': 'Paul', 'grade': 90},
+        {'name': 'George', 'grade': 85},
+        {'name': 'Ringo', 'grade': 95},
+    ]
+    return render_template("grades.html", grades=grades)
