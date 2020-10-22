@@ -2,6 +2,14 @@ import math
 
 
 def quadratic(a, b, c):
+    """
+    Simple version of quadratic function solver
+    a: float
+    b: float
+    c: float
+
+    Return: two numbers
+    """
     discriminant = b ** 2 - 4 * a * c  # calculate the discriminant
 
     if discriminant >= 0:  # equation has solutions
