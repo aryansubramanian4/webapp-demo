@@ -36,7 +36,7 @@ def calculate():
     return render_template("calculator_form.html", error=None)
 
 
-@app.route("/grade")
+@app.route("/grade/")
 def test():
     grades = [
         {'name': 'John', 'grade': 80},
