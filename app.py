@@ -25,11 +25,16 @@ def calculate():
         a = float(request.form["a"])
         b = float(request.form["b"])
         c = float(request.form["c"])
-        root_1, root_2 = quadratic(a, b, c)
+        roots = quadratic(a, b, c)
 
-        if root_1:
+        if roots:
             return render_template(
-                "calculator_result.html", a=a, b=b, c=c, root_1=root_1, root_2=root_2
+                "calculator_result.html",
+                a=a,
+                b=b,
+                c=c,
+                root_1=roots[0],
+                root_2=roots[1],
             )
         else:
             return render_template("calculator_form.html", error=True)
@@ -45,3 +50,7 @@ def test():
         {'name': 'Ringo', 'grade': 95},
     ]
     return render_template("grades.html", grades=grades)
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
