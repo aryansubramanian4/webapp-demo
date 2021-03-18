@@ -18,7 +18,7 @@ def quadratic(a, b, c):
         return x_1, x_2
     else:
         print('No Real Number Solution.')
-        return None, None
+        return None
 
 
 def main():
