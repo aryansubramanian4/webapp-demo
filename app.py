@@ -19,26 +19,51 @@ def hello(name=None):
     return render_template("hello.html", name=name)
 
 
-@app.route("/calc/", methods=["GET", "POST"])
-def calculate():
-    if request.method == "POST":
-        a = float(request.form["a"])
-        b = float(request.form["b"])
-        c = float(request.form["c"])
-        roots = quadratic(a, b, c)
+# @app.route("/calc/", methods=["GET", "POST"])
+# def calculate():
+#     if request.method == "POST":
+#         a = float(request.form["a"])
+#         b = float(request.form["b"])
+#         c = float(request.form["c"])
+#         roots = quadratic(a, b, c)
 
-        if roots:
-            return render_template(
-                "calculator_result.html",
-                a=a,
-                b=b,
-                c=c,
-                root_1=roots[0],
-                root_2=roots[1],
-            )
-        else:
-            return render_template("calculator_form.html", error=True)
+#         if roots:
+#             return render_template(
+#                 "calculator_result.html",
+#                 a=a,
+#                 b=b,
+#                 c=c,
+#                 root_1=roots[0],
+#                 root_2=roots[1],
+#             )
+#         else:
+#             return render_template("calculator_form.html", error=True)
+#     return render_template("calculator_form.html", error=None)
+
+
+@app.get('/calc/')
+def calc_get():
     return render_template("calculator_form.html", error=None)
+
+
+@app.post('/calc/')
+def calc_post():
+    a = float(request.form["a"])
+    b = float(request.form["b"])
+    c = float(request.form["c"])
+    roots = quadratic(a, b, c)
+
+    if roots:
+        return render_template(
+            "calculator_result.html",
+            a=a,
+            b=b,
+            c=c,
+            root_1=roots[0],
+            root_2=roots[1],
+        )
+    else:
+        return render_template("calculator_form.html", error=True)
 
 
 @app.route("/grade/")

@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <h1>Calculator</h1>
     <form method="POST" name="calculator">
       {% if error %}
-      <p style="color:red">This equation does not have real number solution.</p>
+      <p class="red">This equation does not have real number solution.</p>
       {% endif %}
-      <p>
-        Please enter three coefficients of a quadratic function:
-      </p>
+      <p>Please enter three coefficients of a quadratic equation:</p>
       <p>
         <input type="text" size="4" name="a" />x<sup>2</sup> +
         <input type="text" size="4" name="b" />x +
