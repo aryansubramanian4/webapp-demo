@@ -67,7 +67,7 @@ def calc_post():
 
 
 @app.route("/grade/")
-def test():
+def show_grades():
     grades = [
         {'name': 'John', 'grade': 80},
         {'name': 'Paul', 'grade': 90},
