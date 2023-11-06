@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 
 from calculator import quadratic
 
-
 app = Flask(__name__)
 
 
@@ -17,6 +16,11 @@ def hello(name=None):
     if name:
         name = name.upper()
     return render_template("hello.html", name=name)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html")
 
 
 # @app.route("/calc/", methods=["GET", "POST"])
