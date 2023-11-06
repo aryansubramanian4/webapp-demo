@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>Quadratic Equation Solver</title>
     <style>
       .red {
         color: red;
@@ -11,8 +11,8 @@
     </style>
   </head>
   <body>
-    <h1>Calculator</h1>
-    <form method="POST" name="calculator">
+    <h1>Quadratic Equation Solver</h1>
+    <form method="POST" name="solver">
       {% if error %}
       <p class="red">This equation does not have real number solution.</p>
       {% endif %}
@@ -23,7 +23,7 @@
         <input type="text" size="4" name="c" /> = 0
       </p>
       <p>
-        <input type="submit" value="Magic Happens" />
+        <input type="submit" value="Solve" />
       </p>
     </form>
   </body>

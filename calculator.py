@@ -1,15 +1,24 @@
 import math
+from typing import Union
 
 
-def quadratic(a, b, c):
+def quadratic(a: float, b: float, c: float) -> Union[tuple[float, float], None]:
     """
-    Simple version of quadratic equation solver
-    a: float
-    b: float
-    c: float
+    Solve a quadratic equation of the form ax^2 + bx + c = 0.
 
-    Return: two numbers
+    Parameters:
+        a (float): Coefficient of x^2.
+        b (float): Coefficient of x.
+        c (float): Constant term.
+
+    Returns:
+        tuple[float, float] or None: A tuple of two real roots if they exist, or None if no real roots exist.
     """
+    if a == 0:
+        raise ValueError(
+            "Coefficient 'a' must be nonzero for a valid quadratic equation."
+        )
+
     discriminant = b**2 - 4 * a * c  # calculate the discriminant
 
     if discriminant >= 0:  # equation has solutions
@@ -17,7 +26,6 @@ def quadratic(a, b, c):
         x_2 = (-b - math.sqrt(discriminant)) / (2 * a)
         return x_1, x_2
     else:
-        print('No Real Number Solution.')
         return None
 
 
@@ -25,11 +33,12 @@ def main():
     a = float(input('please enter a number:'))
     b = float(input('please enter a number:'))
     c = float(input('please enter a number:'))
-    sol_1, sol_2 = quadratic(a, b, c)
-    if sol_1:
+    sol = quadratic(a, b, c)
+    if sol is not None:
+        sol_1, sol_2 = sol
         print(f'The two roots are: {sol_1}, {sol_2}.')
     else:
-        print('No Real Number Solution.')
+        print('No real solutions exist for the given coefficients.')
 
 
 if __name__ == '__main__':
