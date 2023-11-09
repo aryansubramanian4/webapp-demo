@@ -45,16 +45,16 @@ def page_not_found(e):
 #     return render_template("solver_form.html", error=None)
 
 
-@app.get('/solve/')
+@app.get("/solve/")
 def solver_get():
     return render_template("solver_form.html", error=None)
 
 
-@app.post('/solve/')
+@app.post("/solve/")
 def solver_post():
-    a = float(request.form["a"])
-    b = float(request.form["b"])
-    c = float(request.form["c"])
+    a = float(request.form.get("a"))
+    b = float(request.form.get("b"))
+    c = float(request.form.get("c"))
     roots = quadratic(a, b, c)
 
     if roots:
@@ -72,13 +72,13 @@ def solver_post():
 
 @app.route("/grade/")
 def show_grades():
-    grades = [
-        {'name': 'John', 'grade': 80},
-        {'name': 'Paul', 'grade': 90},
-        {'name': 'George', 'grade': 85},
-        {'name': 'Ringo', 'grade': 95},
+    persons = [
+        {"name": "John", "grade": 80},
+        {"name": "Paul", "grade": 90},
+        {"name": "George", "grade": 85},
+        {"name": "Ringo", "grade": 95},
     ]
-    return render_template("grades.html", grades=grades)
+    return render_template("grades.html", grades=persons)
 
 
 if __name__ == "__main__":
