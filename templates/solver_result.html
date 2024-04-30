@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quadratic Equation Solver: Results</title>
-  </head>
 
-  <body>
-    <h1>Results</h1>
-    <p>The equation is {{ a }} * x<sup>2</sup> + {{ b }} * x + {{ c }} = 0.</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quadratic Equation Solver: Results</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
 
-    <p>The two roots are: {{ root_1 }} and {{ root_2 }}.</p>
-  </body>
+<body>
+  <h1>Results</h1>
+  <p>The equation is {{ a }} * x<sup>2</sup> + {{ b }} * x + {{ c }} = 0.</p>
+
+  <p>The two roots are: {{ root_1 }} and {{ root_2 }}.</p>
+
+  <div class="chart" id="bargraph">
+    <script>
+
+    </script>
+  </div>
+</body>
+
 </html>

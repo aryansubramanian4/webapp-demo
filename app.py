@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 
 from calculator import quadratic
 
+
 app = Flask(__name__)
 
 
